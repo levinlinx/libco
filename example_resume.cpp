@@ -18,7 +18,6 @@ static void* routine_func(void* arg) {
 int main() {
     // 初始化协程环境
     stCoRoutine_t* co1 = NULL;
-    stCoRoutine_t* co2 = NULL;
     int id1 = 1;
 
     // 创建两个协程

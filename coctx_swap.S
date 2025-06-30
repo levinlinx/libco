@@ -45,39 +45,39 @@ coctx_swap:
 	ret
 
 #elif defined(__x86_64__)
-	leaq (%rsp),%rax
-    movq %rax, 104(%rdi)
-    movq %rbx, 96(%rdi)
-    movq %rcx, 88(%rdi)
-    movq %rdx, 80(%rdi)
-	  movq 0(%rax), %rax
-	  movq %rax, 72(%rdi) 
-    movq %rsi, 64(%rdi)
-	  movq %rdi, 56(%rdi)
-    movq %rbp, 48(%rdi)
-    movq %r8, 40(%rdi)
-    movq %r9, 32(%rdi)
-    movq %r12, 24(%rdi)
-    movq %r13, 16(%rdi)
-    movq %r14, 8(%rdi)
-    movq %r15, (%rdi)
-	  xorq %rax, %rax
+    leaq (%rsp),%rax     ; 保存当前栈指针到rax
+    movq %rax, 104(%rdi) ; 保存栈指针到rdi+104
+    movq %rbx, 96(%rdi)  ; 保存rbx到rdi+96
+    movq %rcx, 88(%rdi)  ; 保存rcx到rdi+88
+    movq %rdx, 80(%rdi)  ; 保存rdx到rdi+80
+    movq 0(%rax), %rax   ; 加载栈顶值到rax
+    movq %rax, 72(%rdi)  ; 保存栈顶值到rdi+72
+    movq %rsi, 64(%rdi)  ; 保存rsi到rdi+64
+    movq %rdi, 56(%rdi)  ; 保存rdi到rdi+56
+    movq %rbp, 48(%rdi)  ; 保存rbp到rdi+48
+    movq %r8, 40(%rdi)   ; 保存r8到rdi+40
+    movq %r9, 32(%rdi)   ; 保存r9到rdi+32
+    movq %r12, 24(%rdi)  ; 保存r12到rdi+24
+    movq %r13, 16(%rdi)  ; 保存r13到rdi+16
+    movq %r14, 8(%rdi)   ; 保存r14到rdi+8
+    movq %r15, (%rdi)    ; 保存r15到rdi
+    xorq %rax, %rax      ; 清零rax
 
-    movq 48(%rsi), %rbp
-    movq 104(%rsi), %rsp
-    movq (%rsi), %r15
-    movq 8(%rsi), %r14
-    movq 16(%rsi), %r13
-    movq 24(%rsi), %r12
-    movq 32(%rsi), %r9
-    movq 40(%rsi), %r8
-    movq 56(%rsi), %rdi
-    movq 80(%rsi), %rdx
-    movq 88(%rsi), %rcx
-    movq 96(%rsi), %rbx
-		leaq 8(%rsp), %rsp
-		pushq 72(%rsi)
+    movq 48(%rsi), %rbp  ; 恢复rbp
+    movq 104(%rsi), %rsp ; 恢复栈指针
+    movq (%rsi), %r15    ; 恢复r15
+    movq 8(%rsi), %r14   ; 恢复r14
+    movq 16(%rsi), %r13  ; 恢复r13
+    movq 24(%rsi), %r12  ; 恢复r12
+    movq 32(%rsi), %r9   ; 恢复r9
+    movq 40(%rsi), %r8   ; 恢复r8
+    movq 56(%rsi), %rdi  ; 恢复rdi
+    movq 80(%rsi), %rdx  ; 恢复rdx
+    movq 88(%rsi), %rcx  ; 恢复rcx
+    movq 96(%rsi), %rbx  ; 恢复rbx
+    leaq 8(%rsp), %rsp   ; %rsp += 9 即去掉原有返回地址
+    pushq 72(%rsi)       ; 把目标协程的返回地址压入栈
 
-    movq 64(%rsi), %rsi
+    movq 64(%rsi), %rsi  ; 恢复rsi
 	ret
 #endif

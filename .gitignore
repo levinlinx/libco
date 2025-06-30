@@ -1,34 +1,68 @@
-README.md
-
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+/build
+/build_*
+/build_tools
+/_build
+cmake-build-*
+cfrgo/idipsvr/idip_protocol.gen.go
+cfrgo/protocol/msg
+cfrgo/protocol/oss
+cfrgo/protocol/res
+cfrgo/protocol/xrpc/service_*.go
+cfrgo/bin
+cfrgo/test
+cfrgo/perf_data
+cfrgo/metrics
+cfrgo/*/*.pid
+cfrgo/log
+*.default.xml
+*_conf_desc.c
+*_conf_desc.h
+*tca_record.c
+*tca_record.h
+*tca_envtype_list_desc.c
+*tca_envtype_list_desc.h
+.vs
+.vscode
+.idea
+source/tags
+*tcaplus_env_desc.h
+*tcaplus_env_desc.c
+*tcaplus_table_desc.h
+*tcaplus_table_desc.c
+*.pyc
 *.o
-*.obj
+tools/dev/vscode/clangd
+tools/dev/vscode/clang
+tools/dev/vscode/clang-tidy
+tools/dev/vscode/cmake
+__debug_bin
 
-# Precompiled Headers
-*.gch
-*.pch
+external/zlib/zlib*
+external/curl/curl*
+external/openssl/openssl*
+external/opentelemetry/opentelemetry*
+external/protobuf3/protobuf*
+external/backward-cpp/backward*
+external/tcaplus/examples*
+external/tsf4g2_2.13.1*
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+.obsidian
+.fleet
+.cache/*
+.ccls.*
+.vim*
 
-# Fortran module files
-*.mod
-*.smod
+tools/entry/ops/cfr_cos.yaml
+cfrgo/websvr/etc/MapConfig.csv
+cfrgo/websvr/etc/websvr.toml
+cfrgo/websvr/log
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+tools/csv_checker/log/*
+tools/csv_checker/default_rules/*
+tools/devops_tools/doc_sync/logs
+source/db/etc/tcaplus_table.xml
 
-# Executables
-*.exe
-*.out
-*.app
+tools/devops_tools/sensitive_word_detection/result.csv
+tools/devops_tools/language_key_diff/modify.csv
+
+cfrgo/testcase/**/output_test
